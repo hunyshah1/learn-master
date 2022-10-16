@@ -98,7 +98,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           
-          <CheckData/>
+          <CheckData name1='Ward' name2='village'/>
         
         </Grid>
         <Grid item xs={12}>

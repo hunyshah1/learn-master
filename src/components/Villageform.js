@@ -9,6 +9,7 @@ import BasicSelect from './dropdown';
 import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
+import CheakData from './cheakdata';
 
 export default function VillageForm() {
   return (
@@ -36,11 +37,12 @@ export default function VillageForm() {
         </Grid>
         <Grid item xs={12} sm={3}>
 
+
           <TextField
             required
             id="uc"
-            name="U-C# 95"
-            label="U-C 95"
+            name="uc"
+            label="U-C# "
             fullWidth
             autoComplete="given-name"
             variant="outlined"
@@ -64,16 +66,44 @@ export default function VillageForm() {
           
         </Grid>
         <Grid item xs={12} sm={3}>
-        <FormattedInputs/>
+        <CheakData name1 = 'chak' name2 = 'mozza'/>
         </Grid>
         <Grid container spacing={3}></Grid>
-        <Grid item xs={12} sm={4}>
-        <BasicSelect/>
+        <Grid item xs={12} sm={3}>
+        <TextField
+            required
+            id="na"
+            name="na"
+            label="N-A#"
+            fullWidth
+            autoComplete="given-name"
+            variant="outlined"
+            color="secondary" 
+          />
+        
+
+          
+        </Grid>
+       
+        
+        <Grid item xs={12} sm={3}>
+        <TextField
+            required
+            id="pp"
+            name="pp"
+            label="P-P#"
+            fullWidth
+            autoComplete="given-name"
+            variant="outlined"
+            color="secondary" 
+          />
+        
+
           
         </Grid>
         
         
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3}>
         <TextField
             required
             id="numberdaar"
@@ -86,7 +116,7 @@ export default function VillageForm() {
           />
           
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3}>
         <PartySelect/>
         </Grid>
         <Grid item xs={12} sm={6}>
