@@ -4,6 +4,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { TextField } from '@mui/material';
+import { Box } from '@mui/material';
 
 export default function CheakData(props) {
   const [value, setValue] = React.useState('');
@@ -13,7 +14,7 @@ export default function CheakData(props) {
   };
 
   return (
-    <FormControl>
+    <FormControl sx={{display:'flex',flexDirection:'row'}}>
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
@@ -25,7 +26,8 @@ export default function CheakData(props) {
         <FormControlLabel value={props.name2} control={<Radio />} label={props.name2} />
 
       </RadioGroup>
-      {value ==='' ? null : <TextField
+      {value ==='' ? null : <Box sx={{alignItems:'flex-end'}}> <TextField
+            
             required
             id="voterarea"
             name="Ward"
@@ -34,16 +36,17 @@ export default function CheakData(props) {
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
-          /> }
+          /> </Box>}
           {value ==='chak'? <FormControl><RadioGroup
+         
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-       
-       
         sx={{display:'flex',flexDirection:'row'}}
+       
+        
       >
-        <FormControlLabel value='gb' control={<Radio />} label='gb' />
-        <FormControlLabel value='rb' control={<Radio />} label='rb' />
+        <FormControlLabel sx={{marginLeft:'2px'}}  value='gb' control={<Radio />} label='gb' />
+        <FormControlLabel sx={{marginLeft:'2px'}} value='rb' control={<Radio />} label='rb' />
 
       </RadioGroup></FormControl>:null}
       
@@ -52,39 +55,3 @@ export default function CheakData(props) {
 }
 
 
-export  function CheakDataVillage() {
-  const [value, setValue] = React.useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  return (
-    <FormControl>
-      <RadioGroup
-        aria-labelledby="demo-controlled-radio-buttons-group"
-        name="controlled-radio-buttons-group"
-        value={value}
-        onChange={handleChange}
-        sx={{display:'flex',flexDirection:'row'}}
-      >
-        <FormControlLabel value="chak" control={<Radio />} label="Chak#" />
-        <FormControlLabel value="mozza" control={<Radio />} label="Mozza" />
-
-      </RadioGroup>
-      {value ==='' ? null : <TextField
-            required
-            id="villagecategory"
-            name="villagecategory"
-            label={value}
-            fullWidth
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-          /> }
-          {value ==='chak'? <><FormControlLabel value="chak" control={<Radio />} label="Chak#" />
-        <FormControlLabel value="mozza" control={<Radio />} label="Mozza" /></> :null  }
-      
-    </FormControl>
-  );
-}

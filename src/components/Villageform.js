@@ -4,12 +4,11 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import { Container } from '@mui/system';
-import FormattedInputs from './idCard';
-import BasicSelect from './dropdown';
 import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
 import CheakData from './cheakdata';
+import MajorCast from './majorCast';
 
 export default function VillageForm() {
   return (
@@ -35,10 +34,13 @@ export default function VillageForm() {
           />
 
         </Grid>
-        <Grid item xs={12} sm={3}>
-
-
-          <TextField
+        <Grid item xs={12} sm={8}>
+        <CheakData name1 = 'chak' name2 = 'mozza'/>
+             
+        </Grid>
+        <Grid item xs={12} sm={2}>
+        
+        <TextField
             required
             id="uc"
             name="uc"
@@ -48,8 +50,12 @@ export default function VillageForm() {
             variant="outlined"
             color="secondary" 
           />
+          
+          
+          
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={2}>
+          
         <TextField
             required
             id="kawwgo"
@@ -61,12 +67,7 @@ export default function VillageForm() {
             variant="outlined"
             color="secondary" 
           />
-          
-          
-          
-        </Grid>
-        <Grid item xs={12} sm={3}>
-        <CheakData name1 = 'chak' name2 = 'mozza'/>
+        
         </Grid>
         <Grid container spacing={3}></Grid>
         <Grid item xs={12} sm={3}>
@@ -124,12 +125,13 @@ export default function VillageForm() {
             required
             id="cast"
             name="Cast"
-            label="Cast"
+            label="Major Cast"
             fullWidth
             autoComplete="shipping postal-code"
             variant="outlined"
             color="secondary"
           />
+          <Button>Add</Button>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
