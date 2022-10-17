@@ -38,8 +38,8 @@ export default function CheakData(props) {
           {value ==='chak'? <FormControl><RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={value}
-        onChange={handleChange}
+       
+       
         sx={{display:'flex',flexDirection:'row'}}
       >
         <FormControlLabel value='gb' control={<Radio />} label='gb' />
