@@ -9,8 +9,11 @@ import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
 import CheakData from './cheakdata';
 import MajorCast from './majorCast';
-
+import InputAdornment from '@mui/material/InputAdornment';
+import { useRef } from 'react';
 export default function VillageForm() {
+  const castInputref = useRef();
+  const valuecast = castInputref.current.value 
   return (
     <React.Fragment>
       <NavBarr>
@@ -31,19 +34,24 @@ export default function VillageForm() {
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
+
           />
 
         </Grid>
         <Grid item xs={12} sm={8}>
-        <CheakData name1 = 'chak' name2 = 'mozza'/>
+        <CheakData name1 = 'Chak' name2 = 'Mozza'/>
              
         </Grid>
         <Grid item xs={12} sm={2}>
         
         <TextField
             required
+            InputProps={{
+              startAdornment: <InputAdornment position="start">U-C#</InputAdornment>,
+            }}
             id="uc"
             name="uc"
+            type= 'number'
             label="U-C# "
             fullWidth
             autoComplete="given-name"
@@ -69,17 +77,69 @@ export default function VillageForm() {
           />
         
         </Grid>
-        <Grid container spacing={3}></Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={2}>
+          
         <TextField
             required
-            id="na"
-            name="na"
-            label="N-A#"
+            id="male"
+             type='number'
+            name="male"
+            label="Male Voters"
             fullWidth
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
+          />
+        
+        </Grid>
+        <Grid item xs={12} sm={2}>
+          
+        <TextField
+            required
+            id="female"
+        
+            name="female"
+            label="Female Voters"
+            fullWidth
+            autoComplete="given-name"
+            variant="outlined"
+            color="secondary" 
+            type = 'number'
+          />
+        
+        </Grid>
+        <Grid item xs={12} sm={2}>
+          
+        <TextField
+            required
+            id="other"
+        
+            name="other"
+            label="Other Voters"
+            fullWidth
+            autoComplete="given-name"
+            variant="outlined"
+            color="secondary" 
+            type = 'number'
+          />
+        
+        </Grid>
+        
+        <Grid container spacing={3}></Grid>
+        <Grid item xs={12} sm={4}>
+        <TextField
+            required
+            
+            id="na"
+            type = 'number'
+            name="na"
+            label="Constituency"
+            fullWidth
+            autoComplete="given-name"
+            variant="outlined"
+            color="secondary" 
+            InputProps={{
+              startAdornment: <InputAdornment position="start">N-A#</InputAdornment>,}}
           />
         
 
@@ -87,16 +147,19 @@ export default function VillageForm() {
         </Grid>
        
         
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={4}>
         <TextField
             required
+            InputProps={{
+              startAdornment: <InputAdornment position="start">P-P#</InputAdornment>,}}
             id="pp"
             name="pp"
-            label="P-P#"
+            label="Constituency"
             fullWidth
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
+            type = 'number'
           />
         
 
@@ -104,6 +167,27 @@ export default function VillageForm() {
         </Grid>
         
         
+        
+        <Grid item xs={12} sm={3}>
+        <PartySelect/>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <TextField
+            required
+            ref={castInputref}
+            InputProps={{
+              endAdornment: <Button onClick={()=>{ (data) = valuecast }} variant='outlined'>Add</Button>,}}
+
+            id="cast"
+            name="Cast"
+            label="Major Cast"
+            fullWidth
+            autoComplete="shipping postal-code"
+            variant="outlined"
+            color="secondary"
+          />
+         
+        </Grid>
         <Grid item xs={12} sm={3}>
         <TextField
             required
@@ -118,27 +202,23 @@ export default function VillageForm() {
           
         </Grid>
         <Grid item xs={12} sm={3}>
-        <PartySelect/>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="cast"
-            name="Cast"
-            label="Major Cast"
-            fullWidth
-            autoComplete="shipping postal-code"
-            variant="outlined"
-            color="secondary"
-          />
-          <Button>Add</Button>
-        </Grid>
-        <Grid item xs={12} sm={6}>
           <TextField
             required
             id="personality"
             name="Main Personality"
             label="Main Personality"
+            fullWidth
+            autoComplete="Personality"
+            variant="outlined"
+            color="secondary"
+          />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <TextField
+            required
+            id="policestation"
+            name="policestation"
+            label="Area Police Station"
             fullWidth
             autoComplete="Personality"
             variant="outlined"
