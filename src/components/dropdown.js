@@ -37,13 +37,14 @@ export  function PartySelect() {
   
     return (
       <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Party</InputLabel>
+        <FormControl fullWidth >
+          <InputLabel id="demo-simple-select-label"     fullWidth
+            autoComplete="given-name">Last Wining Party</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={age}
-            label="Age"
+            label="Last wining Party"
             onChange={handleChange}
           >
             <MenuItem value={10}>PMLN</MenuItem>

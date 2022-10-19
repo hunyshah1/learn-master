@@ -14,6 +14,7 @@ import {Paper} from '@mui/material';
 import { useRef } from 'react';
 import AddData from './addData';
 import NumberDaar from './numberdaar';
+import Mainperson from './mainpersonailtytag';
 export default function VillageForm() {
   const castInputref = useRef();
   
@@ -176,27 +177,18 @@ export default function VillageForm() {
         <Grid item xs={12} sm={3}>
         <PartySelect/>
         </Grid>
-        <Grid item xs={12} sm={12}>
+        <Grid item xs={12} sm={6}>
         <AddData/>
          
         </Grid>
-        <Grid item xs={12} sm={12}>
+        <Grid item xs={12} sm={6}>
         <NumberDaar/>
           
         </Grid>
-        <Grid item xs={12} sm={12}>
-          <TextField
-            required
-            id="personality"
-            name="Main Personality"
-            label="Main Personality"
-            fullWidth
-            autoComplete="Personality"
-            variant="outlined"
-            color="secondary"
-          />
+        <Grid item xs={12} sm={6}>
+          <Mainperson/>
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6}>
           <TextField
             required
             id="policestation"

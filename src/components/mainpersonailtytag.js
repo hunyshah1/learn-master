@@ -7,8 +7,9 @@ const Tags = ({ data, handleDelete }) => {
   return (
     <Box
       sx={{
+        
         background: "#283240",
-        height: "100%",
+        height: "50%",
         display: "flex",
         padding: "0.1rem",
         margin: "0 0.2rem 0 0",
@@ -18,6 +19,7 @@ const Tags = ({ data, handleDelete }) => {
       }}
     >
       <Stack direction='row' gap={1}>
+        
         <Typography>{data}</Typography>
         <Cancel
           sx={{ cursor: "pointer" }}
@@ -30,7 +32,7 @@ const Tags = ({ data, handleDelete }) => {
   );
 };
 
-export default function NumberDaar(props) {
+export default function Mainperson() {
   const [tags, SetTags] = useState([]);
   const tagRef = useRef();
 
@@ -47,18 +49,20 @@ export default function NumberDaar(props) {
     <Box sx={{ flexGrow: 1 }}>
       <form onSubmit={handleOnSubmit}>
         <TextField
-        label='Numberdaar'
+        
+        label='Main Personality'
         variant="outlined"
         color="secondary"
           inputRef={tagRef}
           fullWidth
           size='medium'
+          
           sx={{ margin: "1rem 0" }}
           margin='none'
-          placeholder={tags.length < 5 ? "Enter NumberDaar" : ""}
+          placeholder={tags.length < 5 ? "Enter Main Personality" : ""}
           InputProps={{
             startAdornment: (
-              <Box sx={{ margin: "0 0.2rem 0 0", display: "flex" }}>
+              <Box sx={{ margin: "0 0.2rem 0 0", display: "flex"  }}>
                 {tags.map((data, index) => {
                   return (
                     <Tags data={data} handleDelete={handleDelete} key={index} />
