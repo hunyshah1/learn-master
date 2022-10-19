@@ -9,6 +9,7 @@ import CheckData from './cheakdata';
 import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
+import AddData from './addData';
 
 export default function AddressForm() {
   return (
@@ -100,6 +101,9 @@ export default function AddressForm() {
           
           <CheckData name1='Ward' name2='village'/>
         
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <AddData/>
         </Grid>
         <Grid item xs={12}>
           

@@ -10,10 +10,13 @@ import NavBarr from './navbarr';
 import CheakData from './cheakdata';
 import MajorCast from './majorCast';
 import InputAdornment from '@mui/material/InputAdornment';
+import {Paper} from '@mui/material';
 import { useRef } from 'react';
+import AddData from './addData';
+import NumberDaar from './numberdaar';
 export default function VillageForm() {
   const castInputref = useRef();
-  const valuecast = castInputref.current.value 
+  
   return (
     <React.Fragment>
       <NavBarr>
@@ -21,10 +24,11 @@ export default function VillageForm() {
       <Typography variant="h6"  gutterBottom>
         ADD Village INFO
       </Typography>
+      <Paper variant="outlined" square> 
       <Grid  container spacing={3}>
       
         <Grid item xs={12} sm={3}>
-          
+           
         <TextField
             required
             id="name"
@@ -36,12 +40,13 @@ export default function VillageForm() {
             color="secondary" 
 
           />
-
+             
         </Grid>
         <Grid item xs={12} sm={8}>
         <CheakData name1 = 'Chak' name2 = 'Mozza'/>
              
         </Grid>
+        
         <Grid item xs={12} sm={2}>
         
         <TextField
@@ -171,37 +176,15 @@ export default function VillageForm() {
         <Grid item xs={12} sm={3}>
         <PartySelect/>
         </Grid>
-        <Grid item xs={12} sm={3}>
-          <TextField
-            required
-            ref={castInputref}
-            InputProps={{
-              endAdornment: <Button onClick={()=>{ (data) = valuecast }} variant='outlined'>Add</Button>,}}
-
-            id="cast"
-            name="Cast"
-            label="Major Cast"
-            fullWidth
-            autoComplete="shipping postal-code"
-            variant="outlined"
-            color="secondary"
-          />
+        <Grid item xs={12} sm={12}>
+        <AddData/>
          
         </Grid>
-        <Grid item xs={12} sm={3}>
-        <TextField
-            required
-            id="numberdaar"
-            name="NumberDaar"
-            label="Numberdaar"
-            fullWidth
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-          />
+        <Grid item xs={12} sm={12}>
+        <NumberDaar/>
           
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={12}>
           <TextField
             required
             id="personality"
@@ -224,14 +207,18 @@ export default function VillageForm() {
             variant="outlined"
             color="secondary"
           />
+           
         </Grid>
+        
         <Grid item xs={12}>
           
            <Button type='submit' variant='contained'><Link to='/dash' style={{ textDecoration: 'none',color:'white',}}>Submit</Link></Button>
         </Grid>
       </Grid>
+      </Paper>
       </Container>
       </NavBarr>
+      
     </React.Fragment>
   );
 }
