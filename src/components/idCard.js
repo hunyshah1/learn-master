@@ -32,10 +32,24 @@ export default function FormattedInputs() {
     textmask: '(100) 000-0000',
     numberformat: '1320',
   });
+  const [values2, setValues2] = React.useState({
+    textmask: '(100) 000-0000',
+    numberformat: '1320',
+  });
 
   const handleChange = (event) => {
     setValues({
       ...values,
+      
+      [event.target.name]: event.target.value,
+    });
+    
+  };
+
+  const handleChange1 = (event) => {
+    setValues2({
+      ...values2,
+      
       [event.target.name]: event.target.value,
     });
   };
@@ -49,11 +63,20 @@ export default function FormattedInputs() {
       }}
     >
       <FormControl variant="standard">
-        <InputLabel variant="outlined" htmlFor="formatted-text-mask-input">Phone Number</InputLabel>
+        <InputLabel variant="outlined" htmlFor="formatted-text-mask-input">Add Phone Number </InputLabel>
         <Input
           
           value={values.textmask}
           onChange={handleChange}
+          name="textmask"
+          id="formatted-text-mask-input"
+          inputComponent={TextMaskCustom}
+        />
+        <InputLabel variant="outlined" htmlFor="formatted-text-mask-input">Add Phone Number </InputLabel>
+        <Input
+          
+          value={values2.textmask}
+          onChange={handleChange1}
           name="textmask"
           id="formatted-text-mask-input"
           inputComponent={TextMaskCustom}

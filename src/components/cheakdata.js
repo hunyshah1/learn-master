@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import { TextField } from '@mui/material';
 import { Box } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
-import Checkboxes from './cheakbox';
+// import Checkboxes from './cheakbox';
 
 export default function CheakData(props) {
   const [value, setValue] = React.useState('');
@@ -14,7 +14,7 @@ export default function CheakData(props) {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   return (
     <FormControl sx={{display:'flex',flexDirection:'row'}}>
@@ -50,9 +50,9 @@ export default function CheakData(props) {
       >
         <FormControlLabel sx={{marginLeft:'2px'}}  value='gb' control={<Radio />} label='gb' />
         <FormControlLabel sx={{marginLeft:'2px'}} value='rb' control={<Radio />} label='rb' />
-
+        {/* <Checkbox {...label} defaultChecked /> <h5>Azaffi Abaddi</h5>       */}
       </RadioGroup></FormControl>:null}
-      <Checkbox {...label} defaultChecked /> <h5>Azaffi Abaddi</h5>
+      
     </FormControl>
   );
 }

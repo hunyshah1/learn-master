@@ -10,6 +10,7 @@ import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
 import AddData from './addData';
+import {Paper} from '@mui/material';
 
 export default function AddressForm() {
   return (
@@ -18,7 +19,10 @@ export default function AddressForm() {
       <Container sx={{bgcolor:' '}}>
       <Typography variant="h6"  gutterBottom>
         ADD VOTER INFO
+        
       </Typography>
+
+      <Paper>
       <Grid  container spacing={3}>
         <Grid item xs={12} sm={3}>
         <TextField
@@ -102,14 +106,13 @@ export default function AddressForm() {
           <CheckData name1='Ward' name2='village'/>
         
         </Grid>
-        <Grid item xs={12} sm={12}>
-          <AddData/>
-        </Grid>
+        
         <Grid item xs={12}>
           
            <Button type='submit' variant='contained'><Link to='/dash' style={{ textDecoration: 'none',color:'white',}}>Submit</Link></Button>
         </Grid>
       </Grid>
+      </Paper>
       </Container>
       </NavBarr>
     </React.Fragment>
