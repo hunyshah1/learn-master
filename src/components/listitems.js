@@ -9,6 +9,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from 'react-router-dom';
+import DynamicFormOutlined from '@mui/icons-material/DynamicFormOutlined';
 export const mainListItems = (
   <React.Fragment>
     <Link to="/dash" style={{ textDecoration: 'none', color:'black'}}><ListItemButton>
@@ -20,13 +21,13 @@ export const mainListItems = (
     <Link to="/formview" style={{ textDecoration: 'none', color:'black'}}><ListItemButton >
     <ListItemIcon>
         
-        <PeopleIcon />
+        <DynamicFormOutlined />
       </ListItemIcon>
       <ListItemText primary="Voter Form" />
     </ListItemButton></Link>
     <Link to="/villageformview" style={{ textDecoration: 'none', color:'black'}}><ListItemButton>
       <ListItemIcon>
-      <PeopleIcon />
+      <DynamicFormOutlined/>
       </ListItemIcon>
       <ListItemText primary="Village Form" />
     </ListItemButton></Link>
