@@ -9,7 +9,6 @@ import CheckData from './cheakdata';
 import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
-import AddData from './addData';
 import {Paper} from '@mui/material';
 
 export default function AddressForm() {
@@ -30,7 +29,7 @@ export default function AddressForm() {
             id="name"
             name="Name"
             label="Name"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -43,7 +42,7 @@ export default function AddressForm() {
             id="fatherName"
             name="Father name"
             label="Father name"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -56,7 +55,7 @@ export default function AddressForm() {
             type='number'
             name="ID Card"
             label="ID Card"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -78,7 +77,7 @@ export default function AddressForm() {
             id="cast"
             name="Cast"
             label="Cast"
-            fullWidth
+            fullwidth='true'
             autoComplete="shipping postal-code"
             variant="outlined"
             color="secondary"
@@ -95,7 +94,7 @@ export default function AddressForm() {
             id="comment"
             name="comment"
             label="Voter Comment"
-            fullWidth
+            fullwidth='true'
             autoComplete="comment"
             variant="outlined"
             color="secondary"

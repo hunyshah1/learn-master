@@ -8,15 +8,12 @@ import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
 import CheakData from './cheakdata';
-import MajorCast from './majorCast';
 import InputAdornment from '@mui/material/InputAdornment';
 import {Paper} from '@mui/material';
-import { useRef } from 'react';
 import AddData from './addData';
 import NumberDaar from './numberdaar';
 import Mainperson from './mainpersonailtytag';
 export default function VillageForm() {
-  const castInputref = useRef();
   
   return (
     <React.Fragment>
@@ -35,7 +32,7 @@ export default function VillageForm() {
             id="name"
             name="Name"
             label="Name"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -59,7 +56,7 @@ export default function VillageForm() {
             name="uc"
             type= 'number'
             label="U-C# "
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -76,7 +73,7 @@ export default function VillageForm() {
         
             name="Kauw go# name"
             label="Kauw go"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -91,7 +88,7 @@ export default function VillageForm() {
              type='number'
             name="male"
             label="Male Voters"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -106,7 +103,7 @@ export default function VillageForm() {
         
             name="female"
             label="Female Voters"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -122,7 +119,7 @@ export default function VillageForm() {
         
             name="other"
             label="Other Voters"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -140,7 +137,7 @@ export default function VillageForm() {
             type = 'number'
             name="na"
             label="Constituency"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -161,7 +158,7 @@ export default function VillageForm() {
             id="pp"
             name="pp"
             label="Constituency"
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 
@@ -194,7 +191,7 @@ export default function VillageForm() {
             id="policestation"
             name="policestation"
             label="Area Police Station"
-            fullWidth
+            fullwidth='true'
             autoComplete="Personality"
             variant="outlined"
             color="secondary"

@@ -80,6 +80,7 @@ export default function FormattedInputs() {
           name="textmask"
           id="formatted-text-mask-input"
           inputComponent={TextMaskCustom}
+          
         />
       </FormControl>
       

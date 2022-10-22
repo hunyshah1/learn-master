@@ -5,7 +5,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { TextField } from '@mui/material';
 import { Box } from '@mui/material';
-import Checkbox from '@mui/material/Checkbox';
 // import Checkboxes from './cheakbox';
 
 export default function CheakData(props) {
@@ -35,7 +34,7 @@ export default function CheakData(props) {
             id="voterarea"
             name="Ward"
             label={value}
-            fullWidth
+            fullwidth='true'
             autoComplete="given-name"
             variant="outlined"
             color="secondary" 

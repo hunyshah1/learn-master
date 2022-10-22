@@ -38,7 +38,7 @@ export  function PartySelect() {
     return (
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth >
-          <InputLabel id="demo-simple-select-label"     fullWidth
+          <InputLabel id="demo-simple-select-label"        fullwidth='true'
             autoComplete="given-name">Last Wining Party</InputLabel>
           <Select
             labelId="demo-simple-select-label"
