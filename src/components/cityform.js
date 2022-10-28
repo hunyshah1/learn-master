@@ -13,14 +13,14 @@ import {Paper} from '@mui/material';
 import VoterNumberdaar from './voternumberdaar';
 import CheakedVoterForm from './voterformcheack';
 
-export default function AddressForm(props) {
+export default function CityForm() {
   return (
     <React.Fragment>
       <NavBarr>
-
+        <CheakedVoterForm/>
       <Container sx={{bgcolor:' '}}>
       <Typography variant="h6"  gutterBottom>
-        ADD VOTER INFO
+        ADD City INFO
         
       </Typography>
 
@@ -128,6 +128,6 @@ export default function AddressForm(props) {
       </Paper>
       </Container>
       </NavBarr>
-    </React.Fragment>
+   </React.Fragment>
   );
 }

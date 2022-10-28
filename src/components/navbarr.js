@@ -156,6 +156,7 @@ const AppBar = styled(MuiAppBar, {
               {/* Recent Deposits */}
               
               {/* Recent Orders */}
+              
               <div>{props.children}</div>
             </Grid>
             
