@@ -8,15 +8,14 @@ import FormattedInputs from './idCard';
 import CheckData from './cheakdata';
 import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
-import NavBarr from './navbarr';
 import {Paper} from '@mui/material';
 import VoterNumberdaar from './voternumberdaar';
 import CheakedVoterForm from './voterformcheack';
 
-export default function CityForm() {
+export default function CityForm(props) {
   return (
     <React.Fragment>
-      <NavBarr>
+      <div>{props.children}</div>
         <CheakedVoterForm/>
       <Container sx={{bgcolor:' '}}>
       <Typography variant="h6"  gutterBottom>
@@ -127,7 +126,6 @@ export default function CityForm() {
       </Grid>
       </Paper>
       </Container>
-      </NavBarr>
    </React.Fragment>
   );
 }

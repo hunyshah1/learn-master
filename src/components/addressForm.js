@@ -18,6 +18,8 @@ export default function AddressForm(props) {
     <React.Fragment>
       <NavBarr>
 
+        <div>{props.children}</div>
+
       <Container sx={{bgcolor:' '}}>
       <Typography variant="h6"  gutterBottom>
         ADD VOTER INFO
@@ -106,6 +108,20 @@ export default function AddressForm(props) {
           <TextField
             required
             id="comment"
+            name="comment"
+            label="Voter Comment"
+            fullwidth='true'
+            autoComplete="comment"
+            variant="outlined"
+            color="secondary"
+          />
+        </Grid>
+        
+        <Grid item xs={12} sm={6}>
+          
+          <TextField
+            required
+            id="otheradress"
             name="comment"
             label="Voter Comment"
             fullwidth='true'
