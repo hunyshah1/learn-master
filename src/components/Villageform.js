@@ -13,201 +13,252 @@ import {Paper} from '@mui/material';
 import AddData from './addData';
 import NumberDaar from './numberdaar';
 import Mainperson from './mainpersonailtytag';
+import { useState,useEffect } from 'react';
+
 export default function VillageForm() {
-  
-  return (
-    <React.Fragment>
-      <NavBarr>
-      <Container sx={{bgcolor:' '}}>
-      <Typography variant="h6"  gutterBottom>
-        ADD Village INFO
-      </Typography>
-      <Paper variant="outlined" square> 
-      <Grid  container spacing={3}>
-      
-        <Grid item xs={12} sm={3}>
-           
-        <TextField
-            required
-            id="name"
-            name="Name"
-            label="Name"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
 
-          />
-             
-        </Grid>
-        <Grid item xs={12} sm={8}>
-        <CheakData name1 = 'Chak' name2 = 'Mozza'/>
-             
-        </Grid>
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+  fetch("http://192.168.10.30:3001/kanugo", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+        .then((res) => {
+          return res.json();
+        })
+        .then(
+          (data) => {
+            if(data !== undefined){
+            console.log("Resutl = "+JSON.stringify(data))
+
+            setIsLoaded(true);
+            setItems(data);
+          }else{
+            console.log("ERROR-----  = "+data)
+          }
+        },
+            (error) => {
+              console.log("ERORRR = "+error)
+              setIsLoaded(true);
+              setError(error);
+            }
+          )
+      }, [])
+      if (error) {
+           <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+           <div>Loading...</div>;
+        } else {
+           (
+            <ul>
+              {items.map(item => (
+                <li key={item.ID}>
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          );
         
-        <Grid item xs={12} sm={2}>
-        
-        <TextField
-            required
-            InputProps={{
-              startAdornment: <InputAdornment position="start">U-C#</InputAdornment>,
-            }}
-            id="uc"
-            name="uc"
-            type= 'number'
-            label="U-C# "
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-          />
-          
-          
-          
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          
-        <TextField
-            required
-            id="kawwgo"
-        
-            name="Kauw go# name"
-            label="Kauw go"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-          />
-        
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          
-        <TextField
-            required
-            id="male"
-             type='number'
-            name="male"
-            label="Male Voters"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-          />
-        
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          
-        <TextField
-            required
-            id="female"
-        
-            name="female"
-            label="Female Voters"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-            type = 'number'
-          />
-        
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          
-        <TextField
-            required
-            id="other"
-        
-            name="other"
-            label="Other Voters"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-            type = 'number'
-          />
-        
-        </Grid>
-        
-        <Grid container spacing={3}></Grid>
-        <Grid item xs={12} sm={4}>
-        <TextField
-            required
+        }
+     
+        return (
+          <React.Fragment>
+            {items.data}
+            <NavBarr>
+            <Container sx={{bgcolor:' '}}>
+            <Typography variant="h6"  gutterBottom>
+              ADD Village INFO
+            </Typography>
+            <Paper variant="outlined" square> 
+            <Grid  container spacing={3}>
             
-            id="na"
-            type = 'number'
-            name="na"
-            label="Constituency"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-            InputProps={{
-              startAdornment: <InputAdornment position="start">N-A#</InputAdornment>,}}
-          />
-        
-
-          
-        </Grid>
-       
-        
-        <Grid item xs={12} sm={4}>
-        <TextField
-            required
-            InputProps={{
-              startAdornment: <InputAdornment position="start">P-P#</InputAdornment>,}}
-            id="pp"
-            name="pp"
-            label="Constituency"
-            fullwidth='true'
-            autoComplete="given-name"
-            variant="outlined"
-            color="secondary" 
-            type = 'number'
-          />
-        
-
-          
-        </Grid>
-        
-        
-        
-        <Grid item xs={12} sm={3}>
-        <PartySelect/>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-        <AddData/>
-         
-        </Grid>
-        <Grid item xs={12} sm={6}>
-        <NumberDaar/>
-          
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Mainperson/>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="policestation"
-            name="policestation"
-            label="Area Police Station"
-            fullwidth='true'
-            autoComplete="Personality"
-            variant="outlined"
-            color="secondary"
-          />
-           
-        </Grid>
-        
-        <Grid item xs={12}>
-          
-           <Button type='submit' variant='contained'><Link to='/dash' style={{ textDecoration: 'none',color:'white',}}>Submit</Link></Button>
-        </Grid>
-      </Grid>
-      </Paper>
-      </Container>
-      </NavBarr>
+              <Grid item xs={12} sm={3}>
+                 
+              <TextField
+                  required
+                  id="name"
+                  name="Name"
+                  label="Name"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
       
-    </React.Fragment>
-  );
-}
+                />
+                   
+              </Grid>
+              <Grid item xs={12} sm={8}>
+              <CheakData name1 = 'Chak' name2 = 'Mozza'/>
+                   
+              </Grid>
+              
+              <Grid item xs={12} sm={2}>
+              
+              <TextField
+                  required
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">U-C#</InputAdornment>,
+                  }}
+                  id="uc"
+                  name="uc"
+                  type= 'number'
+                  label="U-C# "
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                />
+                
+                
+                
+              </Grid>
+              <Grid item xs={12} sm={2}>
+                
+              <TextField
+                  required
+                  id="kawwgo"
+              
+                  name="Kauw go# name"
+                  label="Kauw go"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                />
+              
+              </Grid>
+              <Grid item xs={12} sm={2}>
+                
+              <TextField
+                  required
+                  id="male"
+                   type='number'
+                  name="male"
+                  label="Male Voters"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                />
+              
+              </Grid>
+              <Grid item xs={12} sm={2}>
+                
+              <TextField
+                  required
+                  id="female"
+              
+                  name="female"
+                  label="Female Voters"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                  type = 'number'
+                />
+              
+              </Grid>
+              <Grid item xs={12} sm={2}>
+                
+              <TextField
+                  required
+                  id="other"
+              
+                  name="other"
+                  label="Other Voters"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                  type = 'number'
+                />
+              
+              </Grid>
+              
+              <Grid container spacing={3}></Grid>
+              <Grid item xs={12} sm={4}>
+              <TextField
+                  required
+                  
+                  id="na"
+                  type = 'number'
+                  name="na"
+                  label="Constituency"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">N-A#</InputAdornment>,}}
+                />
+              
+      
+                
+              </Grid>
+             
+              
+              <Grid item xs={12} sm={4}>
+              <TextField
+                  required
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">P-P#</InputAdornment>,}}
+                  id="pp"
+                  name="pp"
+                  label="Constituency"
+                  fullwidth='true'
+                  autoComplete="given-name"
+                  variant="outlined"
+                  color="secondary" 
+                  type = 'number'
+                />
+              
+      
+                
+              </Grid>
+              
+              
+              
+              <Grid item xs={12} sm={3}>
+              <PartySelect/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <AddData/>
+               
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <NumberDaar/>
+                
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Mainperson/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="policestation"
+                  name="policestation"
+                  label="Area Police Station"
+                  fullwidth='true'
+                  autoComplete="Personality"
+                  variant="outlined"
+                  color="secondary"
+                />
+                 
+              </Grid>
+              
+              <Grid item xs={12}>
+                
+                 <Button type='submit' variant='contained'><Link to='/dash' style={{ textDecoration: 'none',color:'white',}}>Submit</Link></Button>
+              </Grid>
+            </Grid>
+            </Paper>
+            </Container>
+            </NavBarr>
+            
+          </React.Fragment>
+        );
+      }
+      
+  
