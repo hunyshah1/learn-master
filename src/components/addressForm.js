@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import { Container } from '@mui/system';
 import FormattedInputs from './idCard';
 import CheckData from './cheakdata';
-import {PartySelect} from './dropdown'
+import LastVotedParty from './dropdown';
 import { Link } from "react-router-dom";
 import NavBarr from './navbarr';
 import {Paper} from '@mui/material';
@@ -27,7 +27,7 @@ export default function AddressForm(props) {
       </Typography>
 
       <Paper>
-      <Grid  container spacing={6}>
+      <Grid  container spacing={5}>
         <Grid item xs={12} sm={3}>
           <VoterNumberdaar></VoterNumberdaar>
        
@@ -101,7 +101,7 @@ export default function AddressForm(props) {
         </Grid>
         <Grid item xs={12} sm={4}>
         
-        <PartySelect/>
+        <LastVotedParty />
         </Grid>
         <Grid item xs={12} sm={6}>
           

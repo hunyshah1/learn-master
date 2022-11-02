@@ -24,11 +24,11 @@ export default function CheakData(props) {
         onChange={handleChange}
         sx={{display:'flex',flexDirection:'row'}}
       >
-        <FormControlLabel value={props.name1} control={<Radio />} label={props.name1} />
-        <FormControlLabel value={props.name2} control={<Radio />} label={props.name2} />
+        <FormControlLabel value={props.name1} control={<Radio color='secondary' />} label={props.name1} />
+        <FormControlLabel value={props.name2} control={<Radio color='secondary'/>} label={props.name2} />
         
       </RadioGroup>
-      {value ==='' ? null : <Box sx={{alignItems:'flex-end'}}> <TextField
+      {value ==='Mozza' ? null : <Box sx={{alignItems:'flex-end'}}> <TextField
             
             required
             id="voterarea"
@@ -47,8 +47,8 @@ export default function CheakData(props) {
        
         
       >
-        <FormControlLabel sx={{marginLeft:'2px'}}  value='gb' control={<Radio />} label='gb' />
-        <FormControlLabel sx={{marginLeft:'2px'}} value='rb' control={<Radio />} label='rb' />
+        <FormControlLabel sx={{marginLeft:'2px'}}  value='gb' control={<Radio color='secondary' />} label='gb' />
+        <FormControlLabel sx={{marginLeft:'2px'}} value='rb' control={<Radio color='secondary' />} label='rb' />
         {/* <Checkbox {...label} defaultChecked /> <h5>Azaffi Abaddi</h5>       */}
       </RadioGroup></FormControl>:null}
       

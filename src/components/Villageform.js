@@ -13,59 +13,15 @@ import {Paper} from '@mui/material';
 import AddData from './addData';
 import NumberDaar from './numberdaar';
 import Mainperson from './mainpersonailtytag';
-import { useState,useEffect } from 'react';
+import KanuUcForm from './kanuwucForm';
+
 
 export default function VillageForm() {
 
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-  fetch("http://192.168.10.30:3001/kanugo", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-        .then((res) => {
-          return res.json();
-        })
-        .then(
-          (data) => {
-            if(data !== undefined){
-            console.log("Resutl = "+JSON.stringify(data))
-
-            setIsLoaded(true);
-            setItems(data);
-          }else{
-            console.log("ERROR-----  = "+data)
-          }
-        },
-            (error) => {
-              console.log("ERORRR = "+error)
-              setIsLoaded(true);
-              setError(error);
-            }
-          )
-      }, [])
-      if (error) {
-           <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-           <div>Loading...</div>;
-        } else {
-           (
-            <ul>
-              {items.map(item => (
-                <li key={item.ID}>
-                  {item.name}
-                </li>
-              ))}
-            </ul>
-          );
-        
-        }
+  
      
         return (
           <React.Fragment>
-            {items.data}
             <NavBarr>
             <Container sx={{bgcolor:' '}}>
             <Typography variant="h6"  gutterBottom>
@@ -94,6 +50,12 @@ export default function VillageForm() {
                    
               </Grid>
               
+              <Grid item xs={12} sm={3}>
+              <KanuUcForm/>
+                
+                
+                
+              </Grid>
               <Grid item xs={12} sm={2}>
               
               <TextField
@@ -109,24 +71,8 @@ export default function VillageForm() {
                   autoComplete="given-name"
                   variant="outlined"
                   color="secondary" 
-                />
-                
-                
-                
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                
-              <TextField
-                  required
-                  id="kawwgo"
+                />  
               
-                  name="Kauw go# name"
-                  label="Kauw go"
-                  fullwidth='true'
-                  autoComplete="given-name"
-                  variant="outlined"
-                  color="secondary" 
-                />
               
               </Grid>
               <Grid item xs={12} sm={2}>
@@ -144,7 +90,7 @@ export default function VillageForm() {
                 />
               
               </Grid>
-              <Grid item xs={12} sm={2}>
+              <Grid item xs={12} sm={1.5}>
                 
               <TextField
                   required
@@ -221,7 +167,7 @@ export default function VillageForm() {
               
               
               <Grid item xs={12} sm={3}>
-              <PartySelect/>
+              <PartySelect  />
               </Grid>
               <Grid item xs={12} sm={6}>
               <AddData/>

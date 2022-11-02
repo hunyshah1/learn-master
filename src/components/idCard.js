@@ -63,17 +63,18 @@ export default function FormattedInputs() {
       }}
     >
       <FormControl variant="standard">
-        <InputLabel variant="outlined" htmlFor="formatted-text-mask-input">Add Phone Number </InputLabel>
+        <InputLabel color='secondary' variant="outlined" htmlFor="formatted-text-mask-input">Add Phone Number </InputLabel>
         <Input
-          
+          color='secondary'
           value={values.textmask}
           onChange={handleChange}
           name="textmask"
           id="formatted-text-mask-input"
           inputComponent={TextMaskCustom}
         />
-        <InputLabel variant="outlined" htmlFor="formatted-text-mask-input">Add Phone Number </InputLabel>
+        <InputLabel color='secondary' variant="outlined" htmlFor="formatted-text-mask-input">Add Phone Number </InputLabel>
         <Input
+        color='secondary'
           
           value={values2.textmask}
           onChange={handleChange1}
