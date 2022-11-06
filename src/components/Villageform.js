@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
+import { Box, Button, FormControl } from '@mui/material';
 import { Container } from '@mui/system';
 import {PartySelect} from './dropdown'
 import { Link } from "react-router-dom";
@@ -14,11 +14,32 @@ import AddData from './addData';
 import NumberDaar from './numberdaar';
 import Mainperson from './mainpersonailtytag';
 import KanuUcForm from './kanuwucForm';
-
-
+import  {  useState } from "react";
 export default function VillageForm() {
+const [ucNumber,setucnumber] = useState(0)
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+   const data = new FormData(e.currentTarget)
+   console.log({
+    ucNumber:data.get('ucNumber')
+   })
+    fetch('http://192.168.10.30:3001/useraddress', {
+       method: 'POST',
+       body: JSON.stringify({
+          ucNumber: ucNumber,
+          
+       }),
+       headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+       },
+    })
+    console.log(ucNumber)
+ };
+ 
+ console.log(ucNumber)
   
+
      
         return (
           <React.Fragment>
@@ -27,16 +48,21 @@ export default function VillageForm() {
             <Typography variant="h6"  gutterBottom>
               ADD Village INFO
             </Typography>
-            <Paper variant="outlined" square> 
+            <Paper variant="outlined" square>
+            <Box component='form' onSubmit={handleSubmit}>
+            
             <Grid  container spacing={3}>
+              
             
               <Grid item xs={12} sm={3}>
                  
               <TextField
                   required
-                  id="name"
-                  name="Name"
+                  id="ucNumber"
+                  name="ucNumber"
+                  type='number'
                   label="Name"
+                  onChange={(e)=>{setucnumber(e.target.value)}}
                   fullwidth='true'
                   autoComplete="given-name"
                   variant="outlined"
@@ -50,30 +76,11 @@ export default function VillageForm() {
                    
               </Grid>
               
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={5}>
               <KanuUcForm/>
                 
                 
                 
-              </Grid>
-              <Grid item xs={12} sm={2}>
-              
-              <TextField
-                  required
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">U-C#</InputAdornment>,
-                  }}
-                  id="uc"
-                  name="uc"
-                  type= 'number'
-                  label="U-C# "
-                  fullwidth='true'
-                  autoComplete="given-name"
-                  variant="outlined"
-                  color="secondary" 
-                />  
-              
-              
               </Grid>
               <Grid item xs={12} sm={2}>
                 
@@ -195,10 +202,12 @@ export default function VillageForm() {
               </Grid>
               
               <Grid item xs={12}>
-                
-                 <Button type='submit' variant='contained'><Link to='/dash' style={{ textDecoration: 'none',color:'white',}}>Submit</Link></Button>
+              
+                 <Button type='submit'   variant='contained'><Link to='/dash' style={{ textDecoration: 'none',color:'white',}}>Submit</Link></Button>
               </Grid>
+              
             </Grid>
+                       </Box>
             </Paper>
             </Container>
             </NavBarr>

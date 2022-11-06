@@ -2,7 +2,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useState,useEffect } from 'react';
-import { CircularProgress } from '@mui/material';
+import { Box,Grid,Container } from '@mui/material';
 
 
 const API = 'http://192.168.10.30:3001/'
@@ -35,7 +35,7 @@ const fetchData = async(url,callBack)=>{
             //     }
               )
 }
-export default function KanuUcForm() {
+ const  KanuUcForm = ()=> {
   
   // const [error, setError] = useState(undefined);
   //   const [isLoading, setIsLoaded] = useState(true);
@@ -57,14 +57,16 @@ export default function KanuUcForm() {
           const getComponent = (params)=>{
             return (
               !loading?
-              <TextField {...params} label="KanoGo" color="secondary"  />
+              <TextField  {...params} label="KanoGo" color="secondary"  />
               :<h6>Pleas Wait....</h6>
             )
           }
   return (<> 
   
- 
-  <Autocomplete
+ {/* <Box sx={{display:'flex', justifyContent:'space-around'}}> */}
+ <Container sx={{bgcolor:' '}}>
+ <Grid  container spacing={1}>  
+ <Grid item xs={12} sm={6}> <Autocomplete
       onChange={(event,value)=>{
         if(value){
         setloading(true)
@@ -79,24 +81,32 @@ export default function KanuUcForm() {
       options={items}
       getOptionLabel={(option) => option.NAME}
       filterOptions={filterOptions}
-      renderInput={(params) => <TextField {...params} label="KanoGo" color="secondary"  /> }
+      renderInput={(params) => <TextField  {...params}  label="KanoGo" color="secondary"  /> }
 
     />
+    </Grid>
     {loading?<h6>Wait.....</h6>:
-    <Autocomplete
+
+<Grid item xs={12} sm={6}>
+    <Autocomplete 
     id='c1'
     options={ucItems}
     getOptionLabel={(option) => option.UC_NUMBER+""}
     filterOptions={filterOptions}
-    renderInput={(params) =>  <TextField {...params} label="KanoGo" color="secondary"  />}  
-
+    renderInput={(params) =>  <TextField   {...params}  label="UC-#"   color="secondary"  />}  
+ 
   />
-    
+    </Grid>
     }
-
     
+</Grid>
+{/* </Box>    */}
+</Container>
+
     </>
 
   );
   
 }
+
+export default KanuUcForm;
